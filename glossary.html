@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary · Pixelpocalypse Jukebox</title>
+<meta name="description" content="The words in the Jukebox in plain English: stems, LUFS, true peak, swing, voicings, presets, buses, seeds and more.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pixelpocalypse Jukebox">
+<meta property="og:title" content="Glossary · Pixelpocalypse Jukebox">
+<meta property="og:description" content="The words in the Jukebox in plain English: stems, LUFS, true peak, swing, voicings, presets, buses, seeds and more.">
+<meta property="og:url" content="https://bazola.github.io/super-music-sound-page/glossary.html">
+<meta property="og:image" content="https://bazola.github.io/super-music-sound-page/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600&family=Permanent+Marker&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="rail"></div>
+<nav class="nav" aria-label="Site">
+  <div class="wrap-wide">
+    <a class="nav-brand" href="index.html"><img src="img/favicon.svg" width="30" height="30" alt=""><span>Pixelpocalypse Jukebox</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="manual.html">Manual</a>
+      <a href="setup.html">Setup</a>
+      <a href="scripting.html">Scripting</a>
+      <a href="glossary.html" class="on">Glossary</a>
+      <a class="gh" href="https://github.com/bazola/super-music-sound"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a>
+    </div>
+  </div>
+</nav>
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Glossary</p>
+    <h1>The words, in plain English</h1>
+    <p class="lead">106 terms from audio, MIDI, plugins, mixing and AI music that turn up in the app and this manual.</p>
+  </div>
+</header>
+
+<div class="wrap doc">
+  <nav class="toc" aria-label="Contents">
+    <h4>Sections</h4>
+    <ol>
+      <li><a href="#audio">Audio files and deliverables</a></li>
+      <li><a href="#midi">MIDI and notes</a></li>
+      <li><a href="#plugins">Plugins and instruments</a></li>
+      <li><a href="#mixing">Mixing and effects</a></li>
+      <li><a href="#daw">DAW and workflow</a></li>
+      <li><a href="#ai">AI terms</a></li>
+    </ol>
+  </nav>
+  <div class="doc-body">
+    <input class="glossfilter" type="search" id="gf" placeholder="find a word: lufs, swing, preset..." aria-label="Find a term">
+    <section id="audio" class="gloss-sec">
+      <h2>Audio files and deliverables</h2>
+      <dl class="gloss">
+        <dt>Stem</dt><dd>One track, or one group of tracks (all drums, all synths), rendered to its own audio file, full length, starting at bar 1, so that playing every stem together reproduces the mix.</dd>
+        <dt>Mix, mixdown</dt><dd>All tracks summed to one stereo file with levels, pans and effects applied.</dd>
+        <dt>Master, mastering</dt><dd>The final pass on a finished mix: overall EQ, compression, a limiter, and loudness set to a target so it sits at the same level as commercial releases.</dd>
+        <dt>Bounce, render</dt><dd>Writing audio to a file instead of playing it live. &quot;Bounce in place&quot; renders one track to audio inside the project.</dd>
+        <dt>Dry, wet</dt><dd>Dry is a signal before effects; wet is after. A &quot;dry stem&quot; has no reverb or compression on it.</dd>
+        <dt>Pre-fader, post-fader</dt><dd>Whether a signal is tapped before or after the track&#x27;s volume fader. Post-fader stems reflect your mix levels; pre-fader stems are at raw level.</dd>
+        <dt>Sample rate</dt><dd>How many audio samples per second. 44.1 kHz is CD; 48 kHz is the DAW, film and game standard.</dd>
+        <dt>Bit depth</dt><dd>Bits per sample. 16-bit is CD; 24-bit is the production standard; 32-bit float cannot clip.</dd>
+        <dt>Clipping</dt><dd>Signal exceeding the maximum level, producing distortion.</dd>
+        <dt>LUFS</dt><dd>Loudness Units relative to Full Scale: the loudness measure streaming services use. Spotify normalises to about -14 LUFS; game audio middleware often targets -16 to -18.</dd>
+        <dt>True peak, dBTP</dt><dd>The highest level the waveform reaches between samples. Streaming services ask for -1 dBTP.</dd>
+        <dt>Headroom</dt><dd>Space left between the loudest peak and 0 dBFS.</dd>
+        <dt>Loop points</dt><dd>Sample positions where playback jumps back so a track repeats seamlessly, usually bar-aligned.</dd>
+        <dt>One-shot, hit</dt><dd>A single short sample (a kick, a snare) triggered by one note.</dd>
+        <dt>Sample</dt><dd>A recorded audio snippet used as an instrument or a sound. Also the individual numeric value in digital audio.</dd>
+        <dt>Loop</dt><dd>A short audio phrase (1 to 8 bars) made to repeat.</dd>
+        <dt>Normalise</dt><dd>Scale a file so its peak (or its loudness) hits a target.</dd>
+        <dt>Multitrack</dt><dd>A session or export with every track kept separate.</dd>
+      </dl>
+    </section>
+    <section id="midi" class="gloss-sec">
+      <h2>MIDI and notes</h2>
+      <dl class="gloss">
+        <dt>MIDI</dt><dd>A protocol and file format for note events (which note, when, how hard, how long) and controls, with no audio in it. The instrument that plays it decides the sound.</dd>
+        <dt>Type 0, Type 1 MIDI file</dt><dd>Type 0 puts every part on one track; Type 1 keeps one track per part. DAWs import Type 1 as separate tracks.</dd>
+        <dt>Note on, note off</dt><dd>The event that starts a note and the one that ends it. Length is the gap between them.</dd>
+        <dt>Velocity</dt><dd>How hard a note was struck, 1 to 127. Drives volume and often timbre. Flat velocity is the main reason generated MIDI sounds mechanical.</dd>
+        <dt>Ticks, PPQ</dt><dd>MIDI time is counted in ticks per quarter note (PPQ or PPQN), commonly 480 or 960. Swing and micro-timing are offsets in ticks.</dd>
+        <dt>Tempo, BPM</dt><dd>Beats per minute. A MIDI file carries tempo as a meta event, and can change it mid-song.</dd>
+        <dt>Time signature, meter</dt><dd>Beats per bar and the beat unit: 4/4, 3/4, 6/8. Also a MIDI meta event.</dd>
+        <dt>Meta event</dt><dd>Non-note data in a MIDI file: tempo, time signature, key, track name, markers, lyrics.</dd>
+        <dt>Marker</dt><dd>A named position on the timeline (Intro, Verse, Chorus).</dd>
+        <dt>CC, control change</dt><dd>Continuous controller messages: mod wheel (CC1), volume (CC7), pan (CC10), sustain pedal (CC64), expression (CC11).</dd>
+        <dt>General MIDI, GM</dt><dd>A 1991 standard assigning fixed instrument numbers (1 = piano, 33 = acoustic bass, 128 = gunshot) and a fixed drum map, so any GM device plays a file roughly right. Also the cliché sound of cheap 1990s synths.</dd>
+        <dt>GM drum map</dt><dd>The GM convention for which note number is which drum on channel 10: 36 kick, 38 snare, 42 closed hat, 46 open hat, 49 crash, 51 ride.</dd>
+        <dt>Channel</dt><dd>One of 16 MIDI streams in a file; channel 10 is drums by GM convention.</dd>
+        <dt>Quantize</dt><dd>Snap note starts (and sometimes lengths) to the grid. Over-quantized music sounds robotic.</dd>
+        <dt>Grid, subdivision</dt><dd>The rhythmic resolution notes snap to: 1/8, 1/16, triplets.</dd>
+        <dt>Swing, shuffle</dt><dd>Delaying every second subdivision so pairs of notes go long-short. Light swing is 55 to 58 percent; heavy is 62 to 67.</dd>
+        <dt>Humanisation</dt><dd>Small random or rule-based variations in velocity, timing and length so a part sounds played rather than programmed.</dd>
+        <dt>Micro-timing</dt><dd>Deliberate pushes and pulls of a few milliseconds off the grid, per instrument (a laid-back snare, a pushed hi-hat).</dd>
+        <dt>Articulation</dt><dd>How a note is played: staccato, legato, slide, ghost note, accent. Sample libraries switch articulations with key switches.</dd>
+        <dt>Ghost note</dt><dd>A very quiet note, usually on snare or bass, that adds feel without being heard as a hit.</dd>
+        <dt>Piano roll</dt><dd>The note editor: time across, pitch down, notes as bars.</dd>
+        <dt>Step sequencer, drum grid</dt><dd>A grid of steps per drum where each cell is on or off, with velocity.</dd>
+        <dt>Clip</dt><dd>A block of notes (or audio) with a start and length, placed on a track.</dd>
+        <dt>Arrangement</dt><dd>The order and length of sections across the song.</dd>
+        <dt>Chord track, chord lane</dt><dd>A lane showing the chord per bar; in Logic and Cubase other parts follow it when you change a chord.</dd>
+        <dt>Key, scale</dt><dd>The home note and the set of notes a song uses (C minor). Scale lock restricts notes to the scale.</dd>
+        <dt>Voicing, inversion</dt><dd>Which notes of a chord go where (close, open, spread) and which note is lowest.</dd>
+        <dt>Motif, riff, hook</dt><dd>A short repeated melodic idea; a riff is usually rhythmic and on guitar or bass; a hook is the memorable one.</dd>
+        <dt>Arpeggio, arp</dt><dd>A chord played one note at a time; an arpeggiator does it automatically.</dd>
+      </dl>
+    </section>
+    <section id="plugins" class="gloss-sec">
+      <h2>Plugins and instruments</h2>
+      <dl class="gloss">
+        <dt>Plugin</dt><dd>A synth or effect loaded inside a host program. An instrument plugin takes MIDI in and gives audio out; an effect plugin takes audio in and out.</dd>
+        <dt>VST</dt><dd>Steinberg&#x27;s plugin standard and trademark. VST2 (1999) is closed and can no longer be licensed; VST3 (2008) is the current one, MIT-licensed since Oct 2025. &quot;VSTi&quot; is an old term for a VST instrument that Steinberg asks you not to use.</dd>
+        <dt>Host</dt><dd>The program that loads plugins and feeds them MIDI and audio: a DAW, or a library like pedalboard.</dd>
+        <dt>Headless</dt><dd>Running without a window or UI.</dd>
+        <dt>Offline rendering</dt><dd>Rendering faster than real time to a file, instead of playing live. Plugins must support it; most do.</dd>
+        <dt>Real-time</dt><dd>Processing audio as it plays, with latency small enough to perform with.</dd>
+        <dt>Preset, patch</dt><dd>A saved set of a synth&#x27;s parameter values. Patch is the older word. A bank is a set of presets.</dd>
+        <dt>Plugin state</dt><dd>The full parameter blob a host saves and restores for a plugin.</dd>
+        <dt>Parameter</dt><dd>One controllable value in a plugin (cutoff, attack). VST3 exposes them by ID for automation.</dd>
+        <dt>Mono, poly</dt><dd>Monophonic plays one note at a time (basses, leads); polyphonic plays chords.</dd>
+        <dt>Sampler</dt><dd>An instrument that plays recorded audio files pitched across the keyboard.</dd>
+        <dt>SFZ</dt><dd>An open text format describing a sample instrument: which WAV plays for which key and velocity, with envelopes and loops. Engine: sfizz (archived Jun 2026).</dd>
+        <dt>SF2, SoundFont</dt><dd>An older binary sample-instrument format; SF3 is the compressed version, played by engines such as FluidSynth.</dd>
+        <dt>Velocity layer</dt><dd>Different samples for soft, medium and hard hits so loud notes sound different, not just louder.</dd>
+        <dt>Round robin</dt><dd>Alternating among several recordings of the same note so repeats don&#x27;t sound identical.</dd>
+        <dt>Wavetable synth</dt><dd>A synth that scans through stored single-cycle waveforms (Vital, Surge).</dd>
+        <dt>FM synth</dt><dd>Frequency-modulation synthesis, the DX7 sound. Dexed is a DX7 clone.</dd>
+        <dt>Subtractive, analogue-style</dt><dd>Oscillators into filters, the Moog and Oberheim model.</dd>
+        <dt>303</dt><dd>The Roland TB-303 acid bassline sound.</dd>
+        <dt>Chiptune, 8-bit</dt><dd>Music from early console sound chips: square waves, noise channels.</dd>
+        <dt>MIDI effect</dt><dd>A plugin that transforms notes rather than audio: arpeggiator, chord, scale, humanizer.</dd>
+        <dt>pedalboard</dt><dd>Spotify&#x27;s Python library for hosting VST3 plugins and rendering audio. GPLv3.</dd>
+      </dl>
+    </section>
+    <section id="mixing" class="gloss-sec">
+      <h2>Mixing and effects</h2>
+      <dl class="gloss">
+        <dt>Mixer</dt><dd>The per-track controls: gain (volume), pan (left-right), mute, solo, effects, and routing.</dd>
+        <dt>Fader</dt><dd>The volume control on a mixer channel.</dd>
+        <dt>Bus, group</dt><dd>A channel that several tracks are summed into (a drum bus) so they can be processed together. The master bus is the final one.</dd>
+        <dt>Send, return, aux</dt><dd>Routing a copy of a track to a shared effect (one reverb for everything) instead of one effect per track.</dd>
+        <dt>Insert</dt><dd>An effect placed directly in a track&#x27;s signal path.</dd>
+        <dt>Compressor</dt><dd>Reduces the level of loud parts so the quiet parts can come up; controls dynamics. Threshold, ratio, attack, release.</dd>
+        <dt>Sidechain compression</dt><dd>A compressor on one track (bass) triggered by another (kick), so the bass ducks whenever the kick hits. The standard fix for kick/bass masking.</dd>
+        <dt>Gate</dt><dd>Mutes a signal below a threshold; removes noise and tails.</dd>
+        <dt>Limiter</dt><dd>A compressor with an infinite ratio that stops peaks passing a ceiling; the last device on a master.</dd>
+        <dt>EQ, equaliser</dt><dd>Adjusts level per frequency band. A parametric EQ has freely set bands; a highpass filter cuts lows below a point.</dd>
+        <dt>Reverb</dt><dd>Simulated room reflections.</dd>
+        <dt>Delay</dt><dd>Echoes.</dd>
+        <dt>Chorus</dt><dd>Doubling with slight pitch and time variation for width.</dd>
+        <dt>Saturation</dt><dd>Mild harmonic distortion that adds warmth and density.</dd>
+        <dt>Masking</dt><dd>One sound hiding another in the same frequency range, most often kick and bass under 150 Hz.</dd>
+        <dt>Frequency balance, spectrum</dt><dd>How energy is spread across lows, mids and highs.</dd>
+        <dt>Stereo field, width</dt><dd>How sounds are spread left to right. Bass is usually centred (mono).</dd>
+        <dt>Transient</dt><dd>The sharp attack at the start of a hit.</dd>
+        <dt>Automation</dt><dd>Recording a parameter&#x27;s changes over time (a filter opening across 8 bars, volume dipping for a drop) as a lane on the track.</dd>
+        <dt>Dynamics, dynamic range</dt><dd>The gap between the loudest and quietest parts.</dd>
+      </dl>
+    </section>
+    <section id="daw" class="gloss-sec">
+      <h2>DAW and workflow</h2>
+      <dl class="gloss">
+        <dt>DAW</dt><dd>Digital Audio Workstation: the program producers live in (Ableton Live, FL Studio, Logic, Cubase, Reaper, Bitwig, Studio One, Ardour). Records, edits, mixes, hosts plugins.</dd>
+        <dt>Arrangement view, timeline</dt><dd>The left-to-right song layout of tracks and clips.</dd>
+        <dt>Track</dt><dd>One instrument&#x27;s or one audio source&#x27;s lane.</dd>
+        <dt>Take</dt><dd>One recorded pass. Comping is picking the best bits from several takes.</dd>
+        <dt>Project, session</dt><dd>The saved file for a song and everything in it.</dd>
+        <dt>Backing track</dt><dd>A full band recording minus one part, for practising or performing over.</dd>
+        <dt>CLI, API</dt><dd>Command-line interface; programmable interface. The Jukebox has both: see Scripting.</dd>
+        <dt>MCP, Model Context Protocol</dt><dd>A standard for exposing tools to AI agents so Claude Code, Codex or opencode can call them. AbletonMCP, reaper-mcp and Resonant expose their apps this way.</dd>
+      </dl>
+    </section>
+    <section id="ai" class="gloss-sec">
+      <h2>AI terms</h2>
+      <dl class="gloss">
+        <dt>Plan-then-render</dt><dd>An LLM writes structure (tempo, key, sections, chords, sounds); code or a model realises it. YuE2 and ACE-Step 1.5 added a planning stage in 2026.</dd>
+        <dt>Deterministic</dt><dd>Same inputs give the same output every time.</dd>
+        <dt>Seed</dt><dd>The number that fixes a random generator&#x27;s sequence; same seed, same result.</dd>
+        <dt>Critic</dt><dd>An automatic check on the result (key consistency, level balance, masking, section energy, timing) that triggers a revision.</dd>
+        <dt>Revision loop</dt><dd>Generate, check, fix, repeat up to N rounds.</dd>
+        <dt>Persona</dt><dd>A preset that steers genre and arrangement choices (Producer, Club DJ, Jazz cat).</dd>
+        <dt>Local model</dt><dd>An LLM or audio model running on your own machine (Ollama, LM Studio, llama.cpp).</dd>
+        <dt>OpenAI-compatible endpoint</dt><dd>An HTTP API that mimics OpenAI&#x27;s chat format, so one client talks to Ollama, LM Studio, OpenRouter or OpenAI.</dd>
+        <dt>JSON mode, structured output</dt><dd>Forcing the LLM to answer in valid JSON that matches a schema.</dd>
+      </dl>
+    </section>
+  </div>
+</div>
+<script>
+/* the filter: hides terms that don't match, and sections left empty. Without it, the page is the whole list. */
+(function () {
+  var box = document.getElementById('gf');
+  box.addEventListener('input', function () {
+    var q = box.value.trim().toLowerCase();
+    document.querySelectorAll('.gloss-sec').forEach(function (sec) {
+      var shown = 0;
+      sec.querySelectorAll('dt').forEach(function (dt) {
+        var dd = dt.nextElementSibling;
+        var hit = !q || (dt.textContent + ' ' + dd.textContent).toLowerCase().indexOf(q) >= 0;
+        dt.hidden = dd.hidden = !hit;
+        if (hit) shown++;
+      });
+      sec.hidden = !shown;
+    });
+  });
+})();
+</script>
+
+<footer class="foot">
+  <div class="wrap-wide">
+    <span>Pixelpocalypse Jukebox · GPL-3.0</span>
+    <a href="https://github.com/bazola/super-music-sound">Source on GitHub</a>
+    <a href="setup.html">Get it running</a>
+    <span class="sp">Every screenshot is the app itself, on songs it wrote.</span>
+  </div>
+</footer>
+<div class="rail" style="border-bottom:0;border-top:2px solid #000"></div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Features · Pixelpocalypse Jukebox</title>
+<meta name="description" content="Everything the Jukebox does: songs from a prompt, an AI producer that revises them, critics that measure the audio, a never-ending jukebox, and a full editor.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pixelpocalypse Jukebox">
+<meta property="og:title" content="Features · Pixelpocalypse Jukebox">
+<meta property="og:description" content="Everything the Jukebox does: songs from a prompt, an AI producer that revises them, critics that measure the audio, a never-ending jukebox, and a full editor.">
+<meta property="og:url" content="https://bazola.github.io/super-music-sound-page/features.html">
+<meta property="og:image" content="https://bazola.github.io/super-music-sound-page/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600&family=Permanent+Marker&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="rail"></div>
+<nav class="nav" aria-label="Site">
+  <div class="wrap-wide">
+    <a class="nav-brand" href="index.html"><img src="img/favicon.svg" width="30" height="30" alt=""><span>Pixelpocalypse Jukebox</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html" class="on">Features</a>
+      <a href="manual.html">Manual</a>
+      <a href="setup.html">Setup</a>
+      <a href="scripting.html">Scripting</a>
+      <a href="glossary.html">Glossary</a>
+      <a class="gh" href="https://github.com/bazola/super-music-sound"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a>
+    </div>
+  </div>
+</nav>
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Features</p>
+    <h1>Everything it does</h1>
+    <p class="lead">A song writer, a producer you can talk to, and a small studio around them. Every picture
+    on this page is the app itself, on songs it wrote.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="tapelabel">Write</span>
+
+    <div class="feature">
+      <div>
+        <h3>A song from a sentence</h3>
+        <p>Describe the song: a genre, a mood, a tempo, an instrument, a shape ("start sparse, build to a huge chorus").
+        The AI producer plans it and you watch each step happen: the plan card with tempo, key, sections and sounds,
+        every track rendering, the critics' findings and what each fix changed.</p>
+        <ul>
+          <li><b>16 writers</b> to choose from, each with their own drums, chords and habits.</li>
+          <li><b>Dials</b> for mood, speed and shape, or no prompt at all: a fresh idea from the dials.</li>
+          <li><b>Quick drafts</b> skip the critics and are playable in a minute or two.</li>
+          <li><b>Takes:</b> ask for several at once and keep the one you like.</li>
+        </ul>
+        <p><a href="manual.html#new-song">How to write a song →</a></p>
+      </div>
+      <figure><a href="img/generate.png" title="full size"><img class="shot" src="img/generate.png" width="1600" height="1000" alt="The AI producer after a generate: the request, the plan card with tempo, key, sections and parts, each track's render, and the finished song."></a></figure>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>Ask for changes</h3>
+        <p>Say what to change in the open song ("make the chorus bigger", "sparser drums in the intro"). The answer comes
+        back as a map of the tracks and sections it touches, with each change listed, to accept or reject.</p>
+        <p>Accepted changes render only the parts they touched, and undo takes any of them back.</p>
+        <p><a href="manual.html#revise">How revisions work →</a></p>
+      </div>
+      <figure><a href="img/revise.png" title="full size"><img class="shot" src="img/revise.png" width="1600" height="1000" alt="A revision's proposal: a grid of tracks against sections with the touched cells lit, and the list of changes with Accept and Reject."></a></figure>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>Critics that listen</h3>
+        <p>After every render, critics measure the audio: loudness of each section against the plan's energy, each track's
+        level against its target, kick against bass, the notes heard against the notes written, and whether every part
+        fits the key. When something fails, they tell the planner what to fix, for up to three rounds.</p>
+        <p>The critics' rounds window shows every number, its limit, and what it was the round before.</p>
+        <p><a href="manual.html#critics">Reading the critics' rounds →</a></p>
+      </div>
+      <figure><a href="img/critics.png" title="full size"><img class="shot" src="img/critics.png" width="1600" height="1000" alt="The critics' rounds window: round 0 with one finding, then tables of section loudness, track levels against targets, onsets against notes, and key fit."></a></figure>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>The jukebox</h3>
+        <p>Pick a mood, add a line if you like ("lots of bass, no vocals"), and press Start. It keeps writing and
+        playing new songs until you stop it, with a different writer, length and idea each time, and the next song
+        always being made while this one plays.</p>
+        <p>Name a channel and it learns from the songs you star in it. Anything in the history can be copied into
+        your songs to edit.</p>
+        <p><a href="manual.html#jukebox">Using the jukebox →</a></p>
+      </div>
+      <figure><a href="img/jukebox.png" title="full size"><img class="shot" src="img/jukebox.png" width="1600" height="1000" alt="The jukebox: channels and moods on the left with a Start button, and a history of songs it wrote, each with its writer and mood, a star and a + mine button."></a></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="tapelabel">Edit</span>
+
+    <div class="feature">
+      <div>
+        <h3>Timeline and chords</h3>
+        <p>Click a lane to select that track's section, a section name to select it on every track, or drag across
+        bars and tracks. Copy, cut, paste, clear, duplicate, move an octave, or save it as a segment to build a later
+        song on.</p>
+        <p>The chord lane shows each bar's chord. Pick another, or type one ("Bb7", "F#m7b5", "iv7"), and the parts
+        follow it in that bar.</p>
+        <p><a href="manual.html#timeline">The timeline →</a> · <a href="manual.html#chords">Chords →</a></p>
+      </div>
+      <figure><a href="img/chords.png" title="full size"><img class="shot" src="img/chords.png" width="1600" height="1000" alt="The timeline with the chord lane open on bar 6: a popup of the key's chords and a box to type any chord."></a></figure>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>Piano roll</h3>
+        <p>Draw, select and erase notes, snap to any grid, and see the chord of every bar above the keys. The velocity
+        lane shows each note's written level and what it plays at; shift-drag draws a crescendo or a fade.</p>
+        <p>Regenerate rewrites the selected bars in the song's style, and "4 variations" lets you hear four
+        versions in the mix before you keep one.</p>
+        <p><a href="manual.html#pianoroll">The piano roll →</a></p>
+      </div>
+      <figure><a href="img/pianoroll.png" title="full size"><img class="shot" src="img/pianoroll.png" width="1600" height="1000" alt="The piano roll under the timeline: a bass part over twenty bars, chord names over each bar, and a velocity lane of red bars at the bottom."></a></figure>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>Drum grid</h3>
+        <p>Every piece of the kit on its own row. Click for a hit, again for an accent, again for a ghost note.
+        Drop a WAV on a row to use your own sample, and hear the pattern on its own with "sketch".</p>
+        <p><a href="manual.html#drumgrid">The drum grid →</a></p>
+      </div>
+      <figure><a href="img/drumgrid.png" title="full size"><img class="shot" src="img/drumgrid.png" width="1600" height="1000" alt="The drum grid: rows for clap, crash, hat, kick, open hat, ride, rim, snare and tom, with hits, accents and ghost notes over four bars."></a></figure>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>Keys and snippets</h3>
+        <p>Play any sound in the library from the computer keyboard or a USB MIDI keyboard. Record a snippet, quantize
+        it, and hand it to the next song: "build on" moves it into the song's key and follows its chords.</p>
+        <p><a href="manual.html#keys">Keys →</a></p>
+      </div>
+      <figure><a href="img/keys.png" title="full size"><img class="shot" src="img/keys.png" width="1600" height="1000" alt="The Keys dock: a sound picker, a two-octave keyboard, and a snippet recorder with tempo and quantize."></a></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="tapelabel">Sound</span>
+
+    <div class="feature">
+      <div>
+        <h3>Mixer and master</h3>
+        <p>A channel strip per track: its sound or kit, insert effects, a gate, pan, level and meters. Swap a
+        track's sound and hear it in the song.</p>
+        <p>Master balances the tracks and brings the song to -14 LUFS through a true-peak limiter. The master strip shows
+        loudness, peak and limiting, with a loudness-matched Bypass so you hear the difference, not the volume.</p>
+        <p><a href="manual.html#mixer">Mixer and master →</a></p>
+      </div>
+      <figure><a href="img/mixer.png" title="full size"><img class="shot" src="img/mixer.png" width="1600" height="1000" alt="The mixer under an eight-track arrangement: a strip per track with sound, inserts, pan knob and fader, and a master strip with target loudness, a VU meter and Bypass."></a></figure>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>A library you can search by ear and by word</h3>
+        <p>Thousands of sounds from 29 instruments and sample libraries, by role, tag and plugin, each with a ▶ to hear
+        it. Every sound carries tags from one vocabulary (instrument, genre, tone, shape, mood), and Generate picks sounds
+        by them.</p>
+        <p>Review tags goes through the sounds one at a time: each plays as it comes up, and every tag is a toggle.</p>
+        <p><a href="manual.html#library">Library and tags →</a></p>
+      </div>
+      <figure><a href="img/library.png" title="full size"><img class="shot" src="img/library.png" width="1600" height="1000" alt="The Library beside the arrangement: collections, roles, status and plugins on the left, and bass sounds with their tags, each with a play button."></a></figure>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>Tag review</h3>
+        <p>Tags from every source (your notes, measurements, preset names, an AI's guess) in one place, the lit ones
+        the sound's own, the dashed ones guesses to confirm. Space plays again, → marks it reviewed and moves on.</p>
+      </div>
+      <figure><a href="img/tagreview.png" title="full size"><img class="shot" src="img/tagreview.png" width="1600" height="1000" alt="Tag review: one sound, with every tag in the vocabulary laid out by facet (instrument, genre, tone, shape, register, mood) and the sound's own tags lit."></a></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="tapelabel">Keep</span>
+
+    <div class="feature">
+      <div>
+        <h3>Your songs</h3>
+        <p>Search titles, prompts, sounds, tags and notes. Star the keepers, see each song's writer, tempo, key and length,
+        play it from the list, and import a MIDI file to start from.</p>
+        <p>Every save is a version. Undo goes back through them, and each song keeps a history of what made each
+        version: your edit, an AI revision and what you asked, a sound swap.</p>
+        <p><a href="manual.html#songs">Songs and versions →</a></p>
+      </div>
+      <figure><a href="img/songs.png" title="full size"><img class="shot" src="img/songs.png" width="1600" height="1000" alt="The Songs panel: a search box, recently opened songs, and a list of songs with their prompt, sounds, writer, tempo, key and length."></a></figure>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:12px">
+      <div class="card">
+        <h3>Export and stems</h3>
+        <p>The mix as WAV and MP3, the song as a MIDI file (one track per part, section markers, swing and feel baked in),
+        its credits and its history, in a folder named after the song and its version. Stems: a 48 kHz, 24-bit WAV
+        per track, all lined up at 0.</p>
+        <p><a href="manual.html#export">Export →</a></p>
+      </div>
+      <div class="card">
+        <h3>Scripts, HTTP and MCP</h3>
+        <p>Everything the editor does runs from a shell with no browser: generate, revise, render, master, critique,
+        export. The server has an HTTP API, and an MCP server lets an AI assistant make and edit songs for you.</p>
+        <p><a href="scripting.html">Scripting →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap-wide">
+    <span>Pixelpocalypse Jukebox · GPL-3.0</span>
+    <a href="https://github.com/bazola/super-music-sound">Source on GitHub</a>
+    <a href="setup.html">Get it running</a>
+    <span class="sp">Every screenshot is the app itself, on songs it wrote.</span>
+  </div>
+</footer>
+<div class="rail" style="border-bottom:0;border-top:2px solid #000"></div>
+</body>
+</html>

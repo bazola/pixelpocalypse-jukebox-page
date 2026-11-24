@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scripting · Pixelpocalypse Jukebox</title>
+<meta name="description" content="Drive the Jukebox without a browser: the command line, the HTTP API, and an MCP server that lets an AI assistant make and edit songs.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pixelpocalypse Jukebox">
+<meta property="og:title" content="Scripting · Pixelpocalypse Jukebox">
+<meta property="og:description" content="Drive the Jukebox without a browser: the command line, the HTTP API, and an MCP server that lets an AI assistant make and edit songs.">
+<meta property="og:url" content="https://bazola.github.io/super-music-sound-page/scripting.html">
+<meta property="og:image" content="https://bazola.github.io/super-music-sound-page/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600&family=Permanent+Marker&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="rail"></div>
+<nav class="nav" aria-label="Site">
+  <div class="wrap-wide">
+    <a class="nav-brand" href="index.html"><img src="img/favicon.svg" width="30" height="30" alt=""><span>Pixelpocalypse Jukebox</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="manual.html">Manual</a>
+      <a href="setup.html">Setup</a>
+      <a href="scripting.html" class="on">Scripting</a>
+      <a href="glossary.html">Glossary</a>
+      <a class="gh" href="https://github.com/bazola/super-music-sound"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a>
+    </div>
+  </div>
+</nav>
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Scripting</p>
+    <h1>No browser needed</h1>
+    <p class="lead">Everything Generate and the editor do with a song can also be run from a shell, over HTTP, or by an AI
+    assistant. Songs made this way show up in the editor's song list.</p>
+  </div>
+</header>
+
+<div class="wrap doc">
+  <nav class="toc" aria-label="Contents">
+    <h4>On this page</h4>
+    <ol>
+      <li><a href="#cli">Command line</a></li>
+      <li><a href="#http">HTTP API</a></li>
+      <li><a href="#mcp">MCP tools</a></li>
+    </ol>
+  </nav>
+  <div class="doc-body">
+
+    <section id="cli">
+      <h2>Command line</h2>
+      <p>The app doesn't need to be running. From the repository:</p>
+<pre><code><span class="k">uv run python -m engine.cli generate</span> "a deep funky groove in C minor" --quick
+<span class="k">uv run python -m engine.cli generate</span> --persona funk --seed 42 --takes 3
+<span class="k">uv run python -m engine.cli generate</span> --persona funk --mood dark --speed fast --shape quiet_middle   <span class="c"># no prompt: a fresh idea from the dials</span>
+<span class="k">uv run python -m engine.cli generate</span> "lo-fi beats" --count 20 --quick        <span class="c"># an overnight batch, seeds n, n+1, ...</span>
+<span class="k">uv run python -m engine.cli generate</span> --plan songs/&lt;name&gt;/plan.json --out songs/&lt;name&gt;_again   <span class="c"># no LLM call</span>
+<span class="k">uv run python -m engine.cli generate</span> --remix &lt;song&gt; "make it a dub version"     <span class="c"># a new song, &lt;song&gt;_remix</span>
+<span class="k">uv run python -m engine.cli ensembles save</span> --song &lt;song&gt; --title "my band"
+<span class="k">uv run python -m engine.cli generate</span> "a slow jam" --ensemble &lt;name&gt;
+<span class="k">uv run python -m engine.cli revise</span> &lt;song&gt; "make the chorus bigger" --accept
+<span class="k">uv run python -m engine.cli render</span> &lt;song&gt;
+<span class="k">uv run python -m engine.cli master</span> &lt;song&gt;
+<span class="k">uv run python -m engine.cli critique</span> &lt;song&gt;
+<span class="k">uv run python -m engine.cli export</span> &lt;song&gt;                  <span class="c"># into ~/Music/Super Music Sound/&lt;Title&gt; v&lt;N&gt;/</span>
+<span class="k">uv run python -m engine.cli list_sounds</span> --role bass
+<span class="k">uv run python -m engine.cli swap_sound</span> &lt;song&gt; bass surrealistic_mg_1_plus/normal_bass</code></pre>
+      <ul>
+        <li><code>&lt;song&gt;</code> is a song's name, its folder or its <code>song.json</code>.</li>
+        <li><code>--help</code> on any command lists its options.</li>
+        <li><code>--json</code> prints the reply as JSON: the song folder, the mix, stem, MIDI and credits paths, and what the
+        critics said. Progress goes to stderr, so the JSON can be piped.</li>
+        <li><code>--plan</code> composes and renders a saved plan without the LLM. <code>--seed</code> gives it other notes.</li>
+        <li>Persona ids: producer, dj, reggae, blues, guitar, funk, soul, jazz, techno, synthwave, chiptune, hiphop, film,
+        ambient, disco, dnb.</li>
+      </ul>
+    </section>
+
+    <section id="http">
+      <h2>HTTP API</h2>
+      <p>While the app is running, the server's API is described at <code>http://127.0.0.1:8000/docs</code>. Generating is a
+      job: start it, poll it, then fetch the mix. In Git Bash:</p>
+<pre><code>SMS=http://127.0.0.1:8000
+job=$(curl -s -X POST $SMS/api/generate -H "Content-Type: application/json" \
+  -d '{"prompt": "a deep funky groove in C minor", "quick": true}')
+id=$(echo "$job" | sed 's/.*"id":"\([^"]*\)".*/\1/')
+song=$(echo "$job" | sed 's/.*"song":"\([^"]*\)".*/\1/')
+until curl -s $SMS/api/jobs/$id | grep -q '"status":"\(done\|error\)"'; do sleep 5; done
+curl -s -o $song.mp3 "$SMS/api/songs/$song/mix.mp3?download=1"</code></pre>
+    </section>
+
+    <section id="mcp">
+      <h2>MCP tools</h2>
+      <p><code>uv run python -m engine.mcp</code> is an MCP server over stdio. Its tools are the same commands, with the same
+      names and arguments: <code>generate</code> (with <code>remix</code> and <code>ensemble</code>), <code>revise</code>,
+      <code>render</code>, <code>master</code>, <code>critique</code>, <code>export</code>, <code>list_sounds</code>,
+      <code>ensembles</code> and <code>swap_sound</code>. An AI assistant can then make and edit songs for you. The app
+      doesn't need to be running.</p>
+      <p>Use the path of your own clone in place of <code>C:/path/to/super-music-sound</code>.</p>
+      <h3>Claude Code</h3>
+<pre><code>claude mcp add super-music-sound -- uv run --directory C:/path/to/super-music-sound python -m engine.mcp</code></pre>
+      <p>A generate takes minutes, and it sends progress as it goes. If a client gives up on it, raise that client's tool
+      timeout (in Claude Code, <code>MCP_TOOL_TIMEOUT</code>, in ms), or ask for <code>quick: true</code>.</p>
+      <h3>Any other MCP client</h3>
+      <p>Add the server to its JSON config (often under <code>mcpServers</code>):</p>
+<pre><code>{
+  "mcpServers": {
+    "super-music-sound": {
+      "command": "uv",
+      "args": ["run", "--directory", "C:/path/to/super-music-sound", "python", "-m", "engine.mcp"]
+    }
+  }
+}</code></pre>
+    </section>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap-wide">
+    <span>Pixelpocalypse Jukebox · GPL-3.0</span>
+    <a href="https://github.com/bazola/super-music-sound">Source on GitHub</a>
+    <a href="setup.html">Get it running</a>
+    <span class="sp">Every screenshot is the app itself, on songs it wrote.</span>
+  </div>
+</footer>
+<div class="rail" style="border-bottom:0;border-top:2px solid #000"></div>
+</body>
+</html>

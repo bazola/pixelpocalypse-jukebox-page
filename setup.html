@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup · Pixelpocalypse Jukebox</title>
+<meta name="description" content="Install the Jukebox on Windows: the tools, the code, the free plugins, a local LLM through Ollama or LM Studio, and a check that says what's missing.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pixelpocalypse Jukebox">
+<meta property="og:title" content="Setup · Pixelpocalypse Jukebox">
+<meta property="og:description" content="Install the Jukebox on Windows: the tools, the code, the free plugins, a local LLM through Ollama or LM Studio, and a check that says what's missing.">
+<meta property="og:url" content="https://bazola.github.io/super-music-sound-page/setup.html">
+<meta property="og:image" content="https://bazola.github.io/super-music-sound-page/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600&family=Permanent+Marker&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="rail"></div>
+<nav class="nav" aria-label="Site">
+  <div class="wrap-wide">
+    <a class="nav-brand" href="index.html"><img src="img/favicon.svg" width="30" height="30" alt=""><span>Pixelpocalypse Jukebox</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="manual.html">Manual</a>
+      <a href="setup.html" class="on">Setup</a>
+      <a href="scripting.html">Scripting</a>
+      <a href="glossary.html">Glossary</a>
+      <a class="gh" href="https://github.com/bazola/super-music-sound"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a>
+    </div>
+  </div>
+</nav>
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Setup</p>
+    <h1>Get it running</h1>
+    <p class="lead">Six steps, about half an hour, most of it downloads. Windows only for now: the plugin builds and paths
+    are Windows ones.</p>
+  </div>
+</header>
+
+<div class="wrap" style="padding-block: 16px 72px; max-width: 860px">
+
+  <h2>1 · Install the tools (once)</h2>
+  <ul>
+    <li><a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>, for Python and its packages. In PowerShell:
+<pre><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre></li>
+    <li><a href="https://nodejs.org/">Node.js LTS</a>, to build the editor.</li>
+    <li><a href="https://git-scm.com/download/win">Git</a>.</li>
+  </ul>
+
+  <h2>2 · Get the code</h2>
+<pre><code>git clone https://github.com/bazola/super-music-sound.git
+cd super-music-sound</code></pre>
+
+  <h2>3 · Get the plugins</h2>
+  <p>Most are free and download from their own releases, checksummed: about 3.7 GB, mostly the VSCO2 orchestra and the
+  bass guitars.</p>
+<pre><code>uv run python scripts/fetch_plugins.py</code></pre>
+  <ul>
+    <li>It also downloads and runs the installers for <a href="https://www.discodsp.com/obxd/">OB-Xd</a> and
+    <a href="https://thewavewarden.com/odin2">Odin 2</a> (both free; Windows asks for admin once each).
+    <code>--no-installers</code> skips them.</li>
+    <li>Each download shows its license as it lands. Libraries whose license doesn't allow sharing them are only ever
+    downloaded at install, never kept in the repository.</li>
+    <li>The four mda instruments (JX10, DX10, ePiano, Piano) are built from source, and only when
+    <a href="https://visualstudio.microsoft.com/vs/community/">Visual Studio 2022 or later</a> (the free Community edition,
+    with "Desktop development with C++") is installed. They're optional: without it their sounds aren't offered.</li>
+    <li>One plugin you install yourself, and it's optional too:
+    <a href="https://cherryaudio.com/products/surrealistic-mg-1-plus">Surrealistic MG-1 Plus</a> (Cherry Audio, paid).
+    The favourite basses are this one; without it, its sounds simply aren't offered.</li>
+  </ul>
+
+  <h2>4 · A local LLM</h2>
+  <p>Run <a href="https://ollama.com/">Ollama</a> or <a href="https://lmstudio.ai/">LM Studio</a> with a model that's good
+  at JSON: a 12B+ instruct model, and bigger plans better. Then:</p>
+<pre><code>copy .env.example .env</code></pre>
+  <p>and set <code>LLM_BASE_URL</code> and <code>LLM_MODEL</code> in <code>.env</code> (the file explains both):</p>
+<pre><code><span class="c"># Ollama</span>
+LLM_BASE_URL=http://localhost:11434/v1
+LLM_MODEL=qwen3:14b
+<span class="c"># LM Studio</span>
+LLM_BASE_URL=http://localhost:1234/v1
+LLM_MODEL=&lt;the model id it shows&gt;</code></pre>
+  <div class="note warn"><p><b>Give the model a 16k context.</b> The planner's prompt is long (it carries the sound
+  catalog). Ollama keeps 2-4k unless you set the environment variable <code>OLLAMA_CONTEXT_LENGTH=16384</code> before
+  starting it; LM Studio asks when you load a model.</p></div>
+  <p>Any OpenAI-compatible server with structured output works, local or not. Set <code>LLM_API_KEY</code> only if yours
+  wants one.</p>
+
+  <h2>5 · Check</h2>
+<pre><code>uv run python scripts/doctor.py</code></pre>
+  <p>It says what's missing and how to fix it, and makes one real LLM call.</p>
+
+  <h2>6 · Start</h2>
+  <p>Double-click <code>start.bat</code> (or run it). The first time, it builds the editor. Then it opens
+  <code>http://127.0.0.1:8000</code>. Close its window to stop the app.</p>
+  <p>Then try the first prompt: open <b>AI</b>, choose <b>New song</b>, type what you want and press
+  <kbd>Ctrl</kbd>+<kbd>Enter</kbd>. <a href="manual.html#new-song">The manual takes it from there →</a></p>
+
+  <hr>
+
+  <h2>Updating</h2>
+<pre><code>git pull
+uv run python scripts/fetch_plugins.py</code></pre>
+  <p><code>fetch_plugins.py</code> gets only the plugins that are new since last time. <code>start.bat</code> rebuilds the
+  editor by itself when the pull changed it (<code>start.bat build</code> forces it). <code>scripts/doctor.py</code> says if
+  anything is missing.</p>
+
+  <h2>If something's wrong</h2>
+  <ul>
+    <li><b>Run the doctor first.</b> It checks the tools, the plugins, <code>.env</code> and the LLM, and says how to fix each.</li>
+    <li><b>Generate fails at planning, or the plan is cut off:</b> the model's context is too small (see step 4), or the
+    model isn't good at JSON. Try a bigger one; the AI panel's model picker lists everything your server offers.</li>
+    <li><b>A sound is missing from the library:</b> its plugin isn't installed. Run <code>fetch_plugins.py</code> again, or
+    add a folder of your own VST3s with <code>SMS_VST3_DIRS</code> in <code>.env</code>.</li>
+    <li><b>An AI assistant gives up on a long generate</b> over MCP: raise its tool timeout, or ask for a quick draft
+    (<a href="scripting.html#mcp">Scripting</a>).</li>
+  </ul>
+</div>
+
+<footer class="foot">
+  <div class="wrap-wide">
+    <span>Pixelpocalypse Jukebox · GPL-3.0</span>
+    <a href="https://github.com/bazola/super-music-sound">Source on GitHub</a>
+    <a href="setup.html">Get it running</a>
+    <span class="sp">Every screenshot is the app itself, on songs it wrote.</span>
+  </div>
+</footer>
+<div class="rail" style="border-bottom:0;border-top:2px solid #000"></div>
+</body>
+</html>

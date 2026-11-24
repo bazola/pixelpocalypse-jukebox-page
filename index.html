@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixelpocalypse Jukebox</title>
+<meta name="description" content="Type what you want and get a song played by real synth plugins, then edit every note in the browser. Runs on your own machine with your own local LLM.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pixelpocalypse Jukebox">
+<meta property="og:title" content="Pixelpocalypse Jukebox">
+<meta property="og:description" content="Type what you want and get a song played by real synth plugins, then edit every note in the browser. Runs on your own machine with your own local LLM.">
+<meta property="og:url" content="https://bazola.github.io/super-music-sound-page/">
+<meta property="og:image" content="https://bazola.github.io/super-music-sound-page/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600&family=Permanent+Marker&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="rail"></div>
+<nav class="nav" aria-label="Site">
+  <div class="wrap-wide">
+    <a class="nav-brand" href="index.html"><img src="img/favicon.svg" width="30" height="30" alt=""><span>Pixelpocalypse Jukebox</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="on">Home</a>
+      <a href="features.html">Features</a>
+      <a href="manual.html">Manual</a>
+      <a href="setup.html">Setup</a>
+      <a href="scripting.html">Scripting</a>
+      <a href="glossary.html">Glossary</a>
+      <a class="gh" href="https://github.com/bazola/super-music-sound"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a>
+    </div>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Songs on demand · runs on your own machine</p>
+      <h1><span>Pixelpocalypse</span><span>Jukebox</span></h1>
+      <p class="lead">Type what you want and get a song played by real synth plugins. Then edit every note in
+      the browser, ask your AI for changes, or leave the jukebox running and let it keep writing new ones.</p>
+      <p class="muted">An LLM on your own machine plans the song: tempo, key, chords, sections and which sound plays
+      what. Code writes the notes, renders them through VST3 instruments, and critics listen to the result.</p>
+      <div class="cta-row">
+        <a class="btn btn-amber" href="features.html">See what it does</a>
+        <a class="btn" href="manual.html">Read the manual</a>
+        <a class="btn" href="setup.html">Get it running</a>
+      </div>
+    </div>
+    <div class="screen">
+      <canvas id="eq" width="240" height="60" role="img" aria-label="A pixel level meter: bars rising and pixels falling from their peaks"></canvas>
+      <p class="prompt"><b>&gt; </b>a deep funky groove in C minor with a fat bass and chord stabs</p>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-wide">
+    <figure>
+      <a href="img/arrangement.png" title="full size"><img class="shot" src="img/arrangement.png" width="1600" height="1000" alt="The editor: a transport with tempo, key and swing across the top, and an arrangement of eight tracks (drums, bass, steel drums, lead, marimba, pad and more) laid out in sections with a chord lane above them."></a>
+      <figcaption><b>Beachfront Resort</b>, a song it wrote from one sentence: eight tracks, its sections and its chords,
+      every part played by a real instrument plugin. Everything you see can be changed.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>From a sentence to a song</h2>
+    <ol class="flow">
+      <li><strong>Plan</strong><span>Your AI picks tempo, key, chords, sections and sounds.</span></li>
+      <li><strong>Write</strong><span>Code writes the notes. The seed decides them.</span></li>
+      <li><strong>Render</strong><span>Every part plays through real VST3 plugins.</span></li>
+      <li><strong>Critique</strong><span>Critics measure the audio and ask for up to 3 fixes.</span></li>
+      <li><strong>Master</strong><span>The song is balanced and brought to -14 LUFS.</span></li>
+      <li><strong>Edit</strong><span>It opens in the editor, and everything can change.</span></li>
+    </ol>
+    <p class="muted" style="margin-top:16px">A three-minute song takes a few minutes, and you watch every step as it
+    happens. A quick draft skips the critics and is playable in one or two.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Make your selection</h2>
+    <div class="bank">
+
+      <div class="group">
+        <header><span class="key" aria-hidden="true">A</span><h3><a href="manual.html#new-song">Write songs</a></h3></header>
+        <ul class="strips">
+          <li><b>Generate from a prompt</b><span>Say what you want, in your own words.</span></li>
+          <li><b>16 writers</b><span>Funk bassist, techno minimalist, chiptune composer, film composer and twelve more, each with their own habits.</span></li>
+          <li><b>Remix and build around</b><span>Make a new song from an old one, or keep a passage and have the rest written around it.</span></li>
+          <li><b>Seeds and ensembles</b><span>Get the same notes again, or hand a band that sounds right the next song.</span></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <header><span class="key" aria-hidden="true">B</span><h3><a href="manual.html#jukebox">The jukebox</a></h3></header>
+        <ul class="strips">
+          <li><b>A mood that never runs out</b><span>Give it a mood or a short line, and it keeps writing and playing new songs.</span></li>
+          <li><b>Always one song ahead</b><span>The next song is being made while this one plays.</span></li>
+          <li><b>Channels that learn</b><span>Name a channel and it learns from the songs you star there.</span></li>
+          <li><b>Keep what you love</b><span>Copy any song from its history into your songs, ready to edit.</span></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <header><span class="key" aria-hidden="true">C</span><h3><a href="manual.html#timeline">Edit every note</a></h3></header>
+        <ul class="strips">
+          <li><b>Timeline and chord lane</b><span>Copy, paste and duplicate sections. Change a bar's chord and the parts follow it.</span></li>
+          <li><b>Piano roll and drum grid</b><span>Draw notes and hits, and shape their velocity with drawn ramps.</span></li>
+          <li><b>Regenerate and 4 variations</b><span>Rewrite a few bars, or hear four versions in the mix and pick one.</span></li>
+          <li><b>Keys</b><span>Play any sound from the computer keyboard or a USB MIDI keyboard, and record snippets.</span></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <header><span class="key" aria-hidden="true">D</span><h3><a href="manual.html#revise">Revise with your AI</a></h3></header>
+        <ul class="strips">
+          <li><b>Ask for a change</b><span>"Make the chorus bigger", and get a map of each change to accept or reject.</span></li>
+          <li><b>The critics' rounds</b><span>Loudness, levels, kick against bass, key fit: every measurement, round by round.</span></li>
+          <li><b>Partial renders</b><span>Only the parts you changed are rendered again.</span></li>
+          <li><b>Undo and history</b><span>Every save is a version, and the song remembers what made each one.</span></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <header><span class="key" aria-hidden="true">E</span><h3><a href="manual.html#mixer">Shape the sound</a></h3></header>
+        <ul class="strips">
+          <li><b>Library</b><span>Thousands of sounds from 29 instruments, by role, tag and plugin, each one a click to hear.</span></li>
+          <li><b>Tags that steer the AI</b><span>A prompt saying "fat gritty bass" finds the sounds tagged fat and gritty.</span></li>
+          <li><b>Mixer</b><span>Levels, pan, effects, and swapping a track's sound or drum kit.</span></li>
+          <li><b>Master</b><span>-14 LUFS through a true-peak limiter, with a loudness-matched Bypass.</span></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <header><span class="key" aria-hidden="true">F</span><h3><a href="manual.html#export">Take it anywhere</a></h3></header>
+        <ul class="strips">
+          <li><b>Export</b><span>WAV, MP3 and a MIDI file, with the song's credits and history.</span></li>
+          <li><b>Stems</b><span>A 48 kHz, 24-bit WAV per track, all lined up at 0, plus the MIDI.</span></li>
+          <li><b>Command line</b><span>Generate, revise, render and export from a shell, overnight batches included.</span></li>
+          <li><b>HTTP and MCP</b><span>Drive it from scripts, or let an AI assistant make and edit songs.</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="plate grid grid-2">
+      <div>
+        <h2>What it needs</h2>
+        <ul>
+          <li><b>Windows.</b> The plugin builds and paths are Windows ones.</li>
+          <li><b>A local LLM</b> through Ollama or LM Studio, with a 16k context. No cloud account, no API key, no bill per song.</li>
+          <li><b>About 3.7 GB of free plugins</b> and sample libraries, fetched and checksummed by one script.</li>
+          <li><b>Optional:</b> Surrealistic MG-1 Plus, a paid plugin, for its basses.</li>
+        </ul>
+        <a class="btn btn-amber" href="setup.html">Setup, step by step</a>
+      </div>
+      <div>
+        <h2>Fill the machine overnight</h2>
+        <pre><code><span class="k">uv run python -m engine.cli generate</span> \
+  "lo-fi beats" --count 20 --quick</code></pre>
+        <p class="muted">Twenty quick drafts, seeds n, n+1 and on, waiting in your song list in the morning.
+        Everything the editor does also runs from a shell, over HTTP, or as tools for an AI assistant.
+        <a href="scripting.html">Scripting →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Where to go next</h2>
+    <div class="grid grid-3">
+      <a class="card" href="features.html"><h3>Features</h3><p class="muted">Every part of the app, each with a screenshot of it at work.</p></a>
+      <a class="card" href="manual.html"><h3>The manual</h3><p class="muted">How to use each panel, from your first prompt to the stems.</p></a>
+      <a class="card" href="glossary.html"><h3>Glossary</h3><p class="muted">Stems, LUFS, swing, voicings: the words in the app, in plain English.</p></a>
+    </div>
+  </div>
+</section>
+
+<script>
+/* the display: a pixel level meter. Complete as a still frame; animated unless reduced motion is asked for. */
+(function () {
+  var c = document.getElementById('eq');
+  var g = c.getContext && c.getContext('2d');
+  if (!g) return;
+  var W = c.width, H = c.height, BAR = 6, GAP = 2, N = Math.floor(W / (BAR + GAP));
+  var fall = [], t = 0;
+  function level(i, time) {
+    var x = i / N;
+    return Math.max(0.08, Math.min(1, (0.5 + 0.28 * Math.sin(x * 9 + time * 0.05) + 0.2 * Math.sin(x * 23 - time * 0.09)) * (1.15 - x * 0.45)));
+  }
+  function draw() {
+    g.fillStyle = '#050505';
+    g.fillRect(0, 0, W, H);
+    for (var i = 0; i < N; i++) {
+      var h = Math.round(level(i, t) * (H - 8) / 3) * 3;
+      for (var y = 0; y < h; y += 3) {
+        g.fillStyle = y > (H - 8) * 0.72 ? '#e8573f' : y > (H - 8) * 0.45 ? '#ffb347' : '#7a4526';
+        g.fillRect(i * (BAR + GAP) + 1, H - y - 2, BAR, 2);
+      }
+      if (t % 4 === 0 && Math.random() < 0.05) fall.push({ x: i * (BAR + GAP) + 1 + Math.floor(Math.random() * BAR), y: H - h - 3, vy: -0.6 - Math.random() });
+    }
+    g.fillStyle = '#ece8de';
+    for (var k = fall.length - 1; k >= 0; k--) {
+      var p = fall[k];
+      p.vy += 0.05; p.y += p.vy;
+      if (p.y > H) { fall.splice(k, 1); continue; }
+      g.fillRect(p.x, Math.round(p.y), 2, 2);
+    }
+  }
+  for (var s = 0; s < 40; s++) { t = s * 4; draw(); }
+  var still = false;
+  try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  if (still) return;
+  (function tick() { t++; draw(); requestAnimationFrame(tick); })();
+})();
+</script>
+
+<footer class="foot">
+  <div class="wrap-wide">
+    <span>Pixelpocalypse Jukebox · GPL-3.0</span>
+    <a href="https://github.com/bazola/super-music-sound">Source on GitHub</a>
+    <a href="setup.html">Get it running</a>
+    <span class="sp">Every screenshot is the app itself, on songs it wrote.</span>
+  </div>
+</footer>
+<div class="rail" style="border-bottom:0;border-top:2px solid #000"></div>
+</body>
+</html>

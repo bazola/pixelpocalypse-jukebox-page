@@ -2,7 +2,7 @@
 
 Run it from the app's repo, so it uses the app's Python and packages:
 
-    uv run --directory <path to super-music-sound> python <path to this file> [--port 8002]
+    uv run --directory <path to the app's repo> python <path to this file> [--port 8002]
 
 It copies the songs named in SONGS from the app's songs/ folder into renders/site/songs/: the
 score, the plan, the critics' rounds, the mix and the stems, but not the render cache, which is

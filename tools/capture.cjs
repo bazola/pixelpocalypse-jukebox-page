@@ -1,17 +1,19 @@
 // Re-takes the site's screenshots from a running app.
 //
-//   1. uv run --directory <super-music-sound> python tools/site_server.py      (port 8002)
+//   1. uv run --directory <the app's repo> python tools/site_server.py      (port 8002)
 //   2. node tools/capture.cjs                 every shot
 //      node tools/capture.cjs mixer piano     only shots whose name contains one of these words
 //
-// Playwright comes from the app's own web/node_modules (SMS_DIR, default ../super-music-sound),
+// Playwright comes from the app's own web/node_modules (SMS_DIR, default ../pixelpocalypse-jukebox, else ../super-music-sound),
 // so this repository installs nothing. The target is SMS_URL (default http://127.0.0.1:8002).
 //
 // The LLM: the app's /api/llm answers with whatever server and models the machine running it uses.
 // The shots show the README's Ollama example instead, so no one's own setup ends up on the site.
 
 const path = require('path')
-const SMS = process.env.SMS_DIR || path.resolve(__dirname, '..', '..', 'super-music-sound')
+const fs = require('fs')
+const SMS = process.env.SMS_DIR || ['pixelpocalypse-jukebox', 'super-music-sound']
+  .map((d) => path.resolve(__dirname, '..', '..', d)).find((d) => fs.existsSync(path.join(d, 'web'))) || path.resolve(__dirname, '..', '..', 'pixelpocalypse-jukebox')
 const { chromium } = require(path.join(SMS, 'web', 'node_modules', '@playwright', 'test'))
 
 const URL = process.env.SMS_URL || 'http://127.0.0.1:8002'

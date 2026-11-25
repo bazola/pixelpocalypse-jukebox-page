@@ -1,9 +1,9 @@
-# super-music-sound-page
+# pixelpocalypse-jukebox-page
 
-The project site for **Pixelpocalypse Jukebox** ([super-music-sound](https://github.com/bazola/super-music-sound)):
+The project site for **Pixelpocalypse Jukebox** ([pixelpocalypse-jukebox](https://github.com/bazola/pixelpocalypse-jukebox)):
 type what you want and get a song played by real synth plugins, then edit every note in the browser.
 
-Live at **https://bazola.github.io/super-music-sound-page/**.
+Live at **https://bazola.github.io/pixelpocalypse-jukebox-page/**.
 
 ## What is here
 
@@ -33,10 +33,10 @@ catch.
 
 ## Re-taking the screenshots
 
-From this repository, with the app's repository beside it (`../super-music-sound`):
+From this repository, with the app's repository beside it (`../pixelpocalypse-jukebox`, or a clone from before the rename, `../super-music-sound`):
 
 ```sh
-uv run --directory ../super-music-sound python tools/site_server.py   # the app on port 8002
+uv run --directory ../pixelpocalypse-jukebox python "$PWD/tools/site_server.py"   # the app on port 8002
 node tools/capture.cjs                     # every shot
 node tools/capture.cjs mixer piano         # only shots whose name contains one of these words
 node tools/capture.cjs live                # generate.png and revise.png: asks your LLM, takes minutes
